@@ -15,7 +15,7 @@ body {
     background-color: #F5F4F9;
 }
 
-#navbar {
+#navbar, footer a {
     padding: 2rem;
     color: white;
     text-align: center;
@@ -25,6 +25,29 @@ body {
     position: sticky;
     z-index: 1;
     margin-bottom: 2rem;
+}
+
+#navbar > ul > li, footer a {
+    margin: 0;
+    list-style: none;
+    font-size: 2rem;
+    display: inline;
+}
+
+#navbar > ul > li > a, footer a {
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    padding: 1.5rem;
+}
+
+@media (max-width: 768px){
+    #navbar {
+        height: 200px;
+    }
+    #navbar a {
+        display: inline-block;
+    }
 }
 
 #jobs {

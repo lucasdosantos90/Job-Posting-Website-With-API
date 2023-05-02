@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/add_jobs.css">
     <title>Add Jobs Here</title>
 </head>
 <body>
@@ -13,29 +14,31 @@
     {% block navbar %}
     {% endblock navbar %}
 
-    <a href="{{ url_for('home') }}">Return to home</a>
-    <form method="POST" action="{{ url_for('add_job') }}">
-        <br><br><label for="job_title">Job Title</label>
-        <input name="job_title"><br><br>
 
-        <label for="job_location">Job Location</label>
-        <input name="job_location"><br><br>
-
-        <label for="job_post_date">Post Date (hidden)</label>    
-        <input type="hidden" name="job_post_date"><br><br>
-
-        <label for="job_contract_time">Contract Time</label>
-        <input type="datetime-local" name="job_contract_time"><br><br>
-
-        <label for="job_requirements">Requirements</label>
-        <input name="job_requirements"><br><br>
-
-        <label for="job_other_skills">Other Skills</label>
-        <input name="job_other_skills"><br><br>
-
-        <label for="job_about">About</label><br><br>
-        <textarea name="job_about"></textarea><br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <div id="form_jobs">
+        <form method="POST" action="{{ url_for('add_job') }}">
+            <label for="job_title">Job Title</label>
+            <input name="job_title">
+    
+            <label for="job_location">Job Location</label>
+            <input name="job_location">
+    
+            <label for="job_post_date">Post Date (hidden)</label>    
+            <input type="hidden" name="job_post_date">
+    
+            <label for="job_contract_time">Contract Time</label>
+            <input type="datetime-local" name="job_contract_time">
+    
+            <label for="job_requirements">Requirements</label>
+            <input name="job_requirements">
+    
+            <label for="job_other_skills">Other Skills</label>
+            <input name="job_other_skills">
+    
+            <label for="job_about">About</label>
+            <textarea name="job_about" rows="10"></textarea>
+            <input type="submit" value="Submit" id="inp_submit">
+        </form>
+    </div>
 </body>
 </html>

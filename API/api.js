@@ -55,4 +55,3 @@ function describeJobs(api){
     </section>
     `
 }
-    

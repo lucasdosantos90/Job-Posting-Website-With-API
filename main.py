@@ -9,7 +9,7 @@ CORS(app)
 db = SQLAlchemy(app)
 
 
-#CLAS Post_Job THAT CREATES TABLE post_job IN DATABASE
+#CLASS Post_Job THAT CREATES TABLE post_job IN DATABASE
 class Post_Job(db.Model):
     job_id = db.Column(db.Integer(), primary_key=True)
     job_title = db.Column(db.String())
@@ -30,10 +30,13 @@ class Post_Job(db.Model):
                 result[key] = getattr(self, key)
         return result
 
+
 #HOMEPAGE
 @app.route('/')
 def home():
-    return render_template('index.html')
+    job_list = Post_Job.query.all()
+    return render_template('index.html',job_list=job_list)
+
 
 #ROUTE ADD JOBS THAT USES FUNCTION ADD NEW JOBS
 @app.route('/add')
@@ -120,18 +123,28 @@ def api_list_jobs():
     return jsonify([])
 
 
-# #API ADD 
-# @app.route('/api/post', methods=['PUT'])
-# def api_add_post():
-#     try:
-#         data = request.get_json()
-#         post = Post(title=data['title'], content=data['content'], author=data['author'])
-#         db.session.add(post)
-#         db.session.commit()
-#         return jsonify({'success':True})
-#     except Exception as error:
-#         print('Error',error)
-#     return jsonify({'success':False})
+#API ADD JOBS
+@app.route('/api/add_jobs', methods=['PUT'])
+def api_add_jobs():
+    try:
+        form = request.get_json()
+        jobs = Post_Job(
+            job_title=form['job_title'], 
+            job_location=form['job_location'], 
+            
+            #job_post_date=datetime(form['job_post_date']),
+            #job_contract_time = request.form.get('job_contract_time'),
+
+            job_requirements=form['job_requirements'],
+            job_other_skills=form['job_other_skills'],
+            job_about=form['job_about'],
+            )
+        db.session.add(jobs)
+        db.session.commit()
+        return jsonify({'success':True})
+    except Exception as error:
+        print('Error',error)
+    return jsonify({'success':False})
 
 
 # #API EDIT

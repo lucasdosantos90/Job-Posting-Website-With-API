@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Fraunces:wght@700&family=Hanken+Grotesk:wght@500;700;800&family=Karla:ital,wght@0,400;1,600&family=Montserrat:wght@500;700&family=Outfit:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto','Lucida Sans';
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #F5F4F9;
+}
+
+#jobs_list{
+    border: none;
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+#edit_jobs {
+    width: 90vw;
+    padding: 2rem;
+    margin: 2rem auto;
+    border: 3px solid black;
+    border-radius: 2rem;
+}
+
+#edit_jobs > form > label, #edit_jobs > form > input {
+    border-radius: 2rem;
+    margin: 1.5rem auto;
+    width: 80%;
+    display: block;
+    font-size: 1.5rem;
+}
+
+#edit_jobs > form > label{
+    margin-top: 2.5rem;
+}
+#edit_jobs > form > input{
+    padding: 1.5rem;
+}
+
+
+textarea {
+    display: block;
+    border-radius: 2rem;
+    width: 80%;
+    margin: 2rem auto;
+    border: 3px solid black;
+    font-size: 1.5rem!important;
+    padding: 2rem;
+}
+
+input[type=submit]{
+    border-radius: 2rem;
+    border: none;
+    background-color: hsla(205, 67%, 54%, 1);
+    font-size: 2rem!important;
+}

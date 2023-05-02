@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles_index.css">
+    <link rel="stylesheet" href="/static/edit_jobs.css">
     <title>Edit Jobs</title>
 </head>
 <body>
@@ -12,30 +14,33 @@
     
     {% block navbar %}
     {% endblock navbar %}
-    <a href="{{ url_for('home') }}">Return to home</a>
-    <form method="POST" action="{{ url_for('edit_jobs', id=edit.job_id) }}">
-    <br><br><label for="job_title">Job Title</label>
-        <input name="job_title" value="{{ edit.job_title }}"><br><br>
 
-        <label for="job_location">Job Location</label>
-        <input name="job_location" value="{{ edit.job_location }}"><br><br>
-
-        <label for="job_post_date">Post Date (hidden)</label>    
-        <input type="hidden" name="job_post_date" value="{{ edit.job_post_date }}"><br><br>
-
-        <label for="job_contract_time">Contract Time</label>
-        <input type="datetime-local" name="job_contract_time" value="{{ edit.job_contract_time }}"><br><br>
-
-        <label for="job_requirements">Requirements</label>
-        <input name="job_requirements" value="{{ edit.job_requirements }}"><br><br>
-
-        <label for="job_other_skills">Other Skills</label>
-        <input name="job_other_skills" value="{{ edit.job_other_skills }}"><br><br>
-
-        <label for="job_about">About</label><br><br>
-        <textarea name="job_about" id="about"></textarea><br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <div id="edit_jobs">
+        <form method="POST" action="{{ url_for('edit_jobs', id=edit.job_id) }}">
+            <label for="job_title">Job Title</label>
+                <input name="job_title" value="{{ edit.job_title }}">
+        
+            <label for="job_location">Job Location</label>
+                <input name="job_location" value="{{ edit.job_location }}">
+        
+            <label for="job_post_date">Post Date (hidden)</label>    
+                <input type="hidden" name="job_post_date" value="{{ edit.job_post_date }}">
+        
+            <label for="job_contract_time">Contract Time</label>
+                <input type="datetime-local" name="job_contract_time" value="{{ edit.job_contract_time }}">
+        
+            <label for="job_requirements">Requirements</label>
+                <input name="job_requirements" value="{{ edit.job_requirements }}">
+        
+            <label for="job_other_skills">Other Skills</label>
+                <input name="job_other_skills" value="{{ edit.job_other_skills }}">
+        
+            <label for="job_about">About</label>
+                <textarea name="job_about" id="about" rows="10"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+    </div>
+    
     <script>
         document.getElementById('about').value = '{{ edit.job_about }}';
     </script>
