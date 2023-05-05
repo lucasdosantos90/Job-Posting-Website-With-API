@@ -25,16 +25,13 @@ function describeJobs(api){
             <h2 id="company">Company: ${api['job_about']} </h2>
             <h2 id="local">Local: ${api['job_location']}</h2>
             <hr>
-            <h2 id="contract-time">Contract Time: ${api['job_contrat_time']}</h2>
-            <h2 id="level">Level de Conhecimento</h2>
-        </div>
-        <hr>
-        <div id="about-job">
             <h2 id="requirements">Requirements: </h2>
                 <ul id="">
                     <li>${api['job_requirements']}</li>
                 </ul>
-            <hr>
+        </div>
+        <hr>
+        <div id="about-job">
             <h2 id="description">Job Description: </h2>
                 <ul id="">
                     <li>${api['job_other_skills']}</li>
