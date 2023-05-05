@@ -50,8 +50,17 @@ body {
     }
 }
 
+@media (max-width: 410px){
+    #navbar {
+        height: 300px;
+    }
+    #navbar a {
+        display: inline-block;
+    }
+}
+
 #jobs {
-    margin-bottom: 100px;
+    margin-bottom: 137px;
     height: 200vh;
     width: 80vw;
 }
