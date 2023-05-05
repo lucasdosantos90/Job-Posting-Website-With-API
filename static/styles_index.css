@@ -37,7 +37,7 @@ ul > li > a {
 }
 #jobs_list{
     border:5px solid black;
-    height: 100vh;
+    height: 100%;
     width: 80vw;
     border-radius: 2rem;
     margin: 2rem auto;
@@ -55,13 +55,15 @@ hr {
     margin: 4rem;
     border: 3px solid hsla(205, 67%, 54%, 1);
 }
-#jobs_list a {
+#jobs_list > a {
+    text-align: center;
     display: inline-block;
+    width: 30%;
     border-radius: 2rem;
     border: none;
     background-color: hsla(205, 67%, 54%, 1);
     padding: 2rem;
-    margin: 2rem;
+    margin: 2rem 3rem;
     text-decoration: none;
     color: white;
 }

@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, jsonify, request
-from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from socket import gethostname
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///job_website.sqlite3.db'
@@ -14,11 +14,10 @@ class Post_Job(db.Model):
     job_id = db.Column(db.Integer(), primary_key=True)
     job_title = db.Column(db.String())
     job_location = db.Column(db.String())
-    job_post_date = db.Column(db.DateTime(), default=datetime.now())
-    job_contract_time = db.Column(db.DateTime(), default=datetime.now())
     job_requirements = db.Column(db.String())
     job_other_skills = db.Column(db.String())
     job_about = db.Column(db.String())
+    job_apply = db.Column(db.String())
 
     def to_dict(self):
         result = {}
@@ -53,13 +52,10 @@ def add_job():
         post = Post_Job(
             job_title=form['job_title'], 
             job_location=form['job_location'], 
-            
-            # job_post_date=datetime(form['job_post_date']),
-            #job_contract_time = request.form.get('job_contract_time'),
-
             job_requirements=form['job_requirements'],
             job_other_skills=form['job_other_skills'],
             job_about=form['job_about'],
+            job_apply = form['job_apply']
             )
         db.session.add(post)
         db.session.commit()
@@ -87,6 +83,7 @@ def edit_jobs(id):
             edit.job_requirements = form['job_requirements']
             edit.job_other_skills = form['job_other_skills']
             edit.job_about = form['job_about']
+            edit.job_apply = form['job_apply']
             db.session.commit()
         except Exception as error:
             print('Error',error)
@@ -131,13 +128,10 @@ def api_add_jobs():
         jobs = Post_Job(
             job_title=form['job_title'], 
             job_location=form['job_location'], 
-            
-            #job_post_date=datetime(form['job_post_date']),
-            #job_contract_time = request.form.get('job_contract_time'),
-
             job_requirements=form['job_requirements'],
             job_other_skills=form['job_other_skills'],
             job_about=form['job_about'],
+            job_apply = form['job_apply']
             )
         db.session.add(jobs)
         db.session.commit()

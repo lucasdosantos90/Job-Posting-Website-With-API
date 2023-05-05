@@ -19,24 +19,26 @@
         <li>
             <a href="{{ url_for('home') }}">Return to home</a>
         </li>
+        <li>
+            <a href="https://lucasdosantos90.github.io/Job-Posting-Website-With-API/">GitHub Site</a>
+        </li>
     </ul>
     {% endblock navbar %}
 
     {% block jobs_list %}
-    <div id="jobs_list">
         {% for job in job_list %}
-        <p>{{ job.job_title }}</p>
-        <p>{{ job.job_location }}</p>
-        <p>{{ job.job_post_date }}</p>
-        <p>{{ job.job_contract_time }}</p>
-        <p>{{ job.job_requirements }}</p>
-        <p>{{ job.job_other_skills }}</p>
-        <p>{{ job.job_about }}</p>
-        <hr>
-        <a href="{{ url_for('delete_job', id=job.job_id) }}">Delete Job</a>
-        <a href="{{ url_for('edit_jobs', id=job.job_id) }}">Edit Job</a>
+            <div id="jobs_list">
+                <p>{{ job.job_title }}</p>
+                <p>{{ job.job_location }}</p>
+                <p>{{ job.job_requirements }}</p>
+                <p>{{ job.job_other_skills }}</p>
+                <p>{{ job.job_about }}</p>
+                <p>{{ job.job_apply }}</p>
+                <hr>
+                <a href="{{ url_for('delete_job', id=job.job_id) }}">Delete Job</a>
+                <a href="{{ url_for('edit_jobs', id=job.job_id) }}">Edit Job</a>
+            </div>
         {% endfor %}
-    </div>
     {% endblock jobs_list %}
 </body>
 </html>

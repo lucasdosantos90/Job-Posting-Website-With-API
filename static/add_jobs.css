@@ -46,8 +46,8 @@ h1 {
 
 #form_jobs > form > input {
     margin: 2rem auto 2rem auto;
-    padding: 2rem;
-    font-size: .5rem;
+    padding: 1.3rem;
+    font-size: 3rem;
     width: 100%;
     border-radius: 1.5rem;
 }
@@ -58,6 +58,8 @@ textarea {
     width: 100%;
     margin: 2rem 0;
     border: 3px solid black;
+    padding: 1.3rem;
+    font-size: 3rem;
 }
 
 input[type=submit]{

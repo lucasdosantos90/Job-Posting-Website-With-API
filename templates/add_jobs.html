@@ -18,26 +18,23 @@
     <div id="form_jobs">
         <form method="POST" action="{{ url_for('add_job') }}">
             <label for="job_title">Job Title</label>
-            <input name="job_title">
+            <input type="text" required name="job_title">
     
             <label for="job_location">Job Location</label>
-            <input name="job_location">
+            <input type="text" required name="job_location">
     
-            <label for="job_post_date">Post Date (hidden)</label>    
-            <input type="hidden" name="job_post_date">
-    
-            <label for="job_contract_time">Contract Time</label>
-            <input type="datetime-local" name="job_contract_time">
+            <label for="job_apply">Please insert email for Contact:</label>    
+            <input type="email" required name="job_apply">
     
             <label for="job_requirements">Requirements</label>
-            <input name="job_requirements">
+            <input type="text" required name="job_requirements">
     
             <label for="job_other_skills">Other Skills</label>
-            <input name="job_other_skills">
+            <input type="text" required name="job_other_skills">
     
             <label for="job_about">About</label>
-            <textarea name="job_about" rows="10"></textarea>
-            <input type="submit" value="Submit" id="inp_submit">
+            <textarea name="job_about" rows="3"></textarea>
+            <input type="submit" required value="Submit" id="inp_submit">
         </form>
     </div>
 </body>
